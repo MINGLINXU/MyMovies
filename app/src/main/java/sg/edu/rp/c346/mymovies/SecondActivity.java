@@ -2,7 +2,7 @@ package sg.edu.rp.c346.mymovies;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.LinearLayout;
+
 import android.widget.ListView;
 
 import java.util.ArrayList;

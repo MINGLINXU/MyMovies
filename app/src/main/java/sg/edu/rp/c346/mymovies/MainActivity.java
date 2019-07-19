@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
@@ -15,7 +16,6 @@ public class MainActivity extends AppCompatActivity {
     ListView lvMovie;
     ArrayList<Movie>alMovie;
     CustomAdapter caMovie;
-    LinearLayout bt1;
 
 
     @Override
@@ -23,7 +23,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        bt1 = findViewById(R.id.bt);
 
         lvMovie = findViewById(R.id.ListViewMovie);
         alMovie = new ArrayList<>();
@@ -39,15 +38,14 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
-
-        bt1.setOnClickListener(new View.OnClickListener() {
+        lvMovie.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onClick(View v) {
-                Intent SecondActivity = new Intent(MainActivity.this,Details.class);
-                startActivity(SecondActivity);
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(getBaseContext(),SecondActivity.class);
+                startActivity(intent);
             }
         });
+
 
     }
 }
